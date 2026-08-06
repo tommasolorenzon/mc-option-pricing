@@ -1,0 +1,25 @@
+[project]
+name = "mc-option-pricing"
+version = "0.1.0"
+description = "Simple MC option pricing"
+readme = "README.md"
+authors = [
+    { name = "Tommaso Lorenzon", email = "tommaso.lorenzon@proton.me" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "matplotlib>=3.11.1",
+    "numpy>=2.5.1",
+    "scipy>=1.18.0",
+    "scipy-stubs~=1.18.0",
+]
+
+[project.scripts]
+mcpricer = "mcpricer:main"
+
+[tool.uv.build-backend]
+module-name = "mcpricer"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
