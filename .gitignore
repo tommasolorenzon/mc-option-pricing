@@ -5,7 +5,21 @@ build/
 dist/
 wheels/
 *.egg-info
-.idea
 
 # Virtual environments
 .venv
+
+# Test and tool caches
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+
+# MCP servers (machine-local)
+.mcp.json
+
+# macOS
+.DS_Store
