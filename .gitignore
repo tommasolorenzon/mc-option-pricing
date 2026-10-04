@@ -23,3 +23,6 @@ wheels/
 
 # macOS
 .DS_Store
+
+# Local notes
+TODO.md
