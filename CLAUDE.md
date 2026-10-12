@@ -10,7 +10,9 @@ included.
 
 
 ## rules for you
-- no AI slop text
+- reply short and factual. prefer me to ask follow up questions rather than throwing
+  text which cannot be digested.
+- no AI slop text. look for the skill.
 - never commit/stage or any other related git command. I take care of it personally
 - never start full force a notebook/evaluation; be a teacher.
 - you have to hint on next steps worth exploring: development, theory concepts.
