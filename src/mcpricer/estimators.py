@@ -79,10 +79,54 @@ def mc_antithetic(payoff_fn, model_fn, N, r, T, rng, **params) -> MCResult:
     return summarize(discounted, n_evals=2 * len(Z), elapsed=elapsed)
 
 
+def mc_control_variate(payoff_fn, model_fn, N, r, T, rng, c=None, **params) -> MCResult:
+    """Subtract the discounted terminal price, whose mean is known exactly.
 
-def mc_control_variate():
-    raise NotImplementedError
+    Under the risk-neutral measure E[exp(-r*T) * S_T] = S0 * exp(-y*T), so the
+    control costs nothing: S_T is already simulated. Leaving c=None estimates
+    the optimal coefficient from the same paths, which makes the estimator
+    biased at order 1/N; pass a c from a pilot run to remove it.
+    """
+    N = int(N)
+
+    t_start = time.perf_counter()
+
+    Z = rng.normal(size=N)
+    S_T = model_fn(Z, r=r, T=T, **params)
+
+    X = np.exp(-r * T) * payoff_fn(S_T, **params)
+    Y = np.exp(-r * T) * S_T
+    mean_Y = params["S0"] * np.exp(-params.get("y", 0.0) * T)
+
+    if c is None:
+        cov = np.cov(X, Y, ddof=1)
+        c = cov[0, 1] / cov[1, 1]
+
+    corrected = X - c * (Y - mean_Y)
+
+    elapsed = time.perf_counter() - t_start
+
+    return summarize(corrected, n_evals=N, elapsed=elapsed)
 
 
-def mc_importance_sampling():
-    raise NotImplementedError
+def mc_importance_sampling(payoff_fn, model_fn, N, r, T, rng, mu, **params) -> MCResult:
+    """Sample Z from N(mu, 1) and weight each draw by the likelihood ratio.
+
+    The weight exp(-mu*Z + mu**2/2) is f/g for f = N(0,1) and g = N(mu, 1), so
+    the estimator is unbiased for any mu. mu is required rather than defaulted:
+    choosing it is the whole technique, and a good choice depends on the model,
+    which this function does not know.
+    """
+    N = int(N)
+
+    t_start = time.perf_counter()
+
+    Z = rng.normal(loc=mu, size=N)
+    S_T = model_fn(Z, r=r, T=T, **params)
+
+    weight = np.exp(-mu * Z + 0.5 * mu**2)
+    weighted = np.exp(-r * T) * payoff_fn(S_T, **params) * weight
+
+    elapsed = time.perf_counter() - t_start
+
+    return summarize(weighted, n_evals=N, elapsed=elapsed)
