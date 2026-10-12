@@ -14,7 +14,7 @@ Black-Scholes. Gain is the variance per payoff evaluation against plain Monte Ca
 | plain | 217 | 1.00x |
 | antithetic | 108 | 2.02x |
 | control variate | 31 | 6.91x |
-| importance sampling | depends on the strike | 0.7x at the money, 2400x at K = 200 |
+| importance sampling | depends on the strike | 0.7x at the money, about 3000x at K = 200 |
 
 ## Summary
 
