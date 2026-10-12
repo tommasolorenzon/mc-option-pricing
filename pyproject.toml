@@ -1,17 +1,16 @@
 [project]
 name = "mc-option-pricing"
 version = "0.1.0"
-description = "Simple MC option pricing"
+description = "Variance reduction for Monte Carlo option pricing"
 readme = "README.md"
 authors = [
     { name = "Tommaso Lorenzon", email = "tommaso.lorenzon@proton.me" }
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.11"
 dependencies = [
     "matplotlib>=3.11.1",
     "numpy>=2.5.1",
     "scipy>=1.18.0",
-    "scipy-stubs~=1.18.0",
 ]
 
 
@@ -27,4 +26,5 @@ dev = [
     "ipykernel>=7.3.0",
     "jupyterlab>=4.6.3",
     "pytest>=9.1.1",
+    "scipy-stubs>=1.18.1.1",
 ]

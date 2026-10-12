@@ -1099,7 +1099,6 @@ dependencies = [
     { name = "matplotlib" },
     { name = "numpy" },
     { name = "scipy" },
-    { name = "scipy-stubs" },
 ]
 
 [package.dev-dependencies]
@@ -1107,6 +1106,7 @@ dev = [
     { name = "ipykernel" },
     { name = "jupyterlab" },
     { name = "pytest" },
+    { name = "scipy-stubs" },
 ]
 
 [package.metadata]
@@ -1114,7 +1114,6 @@ requires-dist = [
     { name = "matplotlib", specifier = ">=3.11.1" },
     { name = "numpy", specifier = ">=2.5.1" },
     { name = "scipy", specifier = ">=1.18.0" },
-    { name = "scipy-stubs", specifier = "~=1.18.0" },
 ]
 
 [package.metadata.requires-dev]
@@ -1122,6 +1121,7 @@ dev = [
     { name = "ipykernel", specifier = ">=7.3.0" },
     { name = "jupyterlab", specifier = ">=4.6.3" },
     { name = "pytest", specifier = ">=9.1.1" },
+    { name = "scipy-stubs", specifier = ">=1.18.1.1" },
 ]
 
 [[package]]
@@ -1263,11 +1263,11 @@ wheels = [
 
 [[package]]
 name = "optype"
-version = "0.18.0"
+version = "0.19.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/99/51/51dc9b1009e020f44703933d4d1ee3429c647c026ce7806b37ee2b257998/optype-0.18.0.tar.gz", hash = "sha256:ea10dee61b15ca299ed0d97025d362585c4dfc5481159bb999a1d0d414bbcb04", size = 59967, upload-time = "2026-06-07T22:13:17.534Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/51/cc/ab0d908a4fd70493628cde3ce0f809c2b0d69b645af52202da4f1b0aeea3/optype-0.19.0.tar.gz", hash = "sha256:50ce4c0ca419026eeae4130dc90c6a0b9a0b54ffe1d940fc26e8d0058903de4c", size = 116633, upload-time = "2026-10-02T23:14:27.141Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/5b/91/2b064a117cb2593bc3eb04ee994134ca2a6bf2162c92961769947e3258cc/optype-0.18.0-py3-none-any.whl", hash = "sha256:91822ed8516e7a4f225ba53d30f291776c35f31553fb952d7cda98286679c5a6", size = 73410, upload-time = "2026-06-07T22:13:16.324Z" },
+    { url = "https://files.pythonhosted.org/packages/a9/2c/8de9d2c9a328419b28feb53081460d901e950b8b676914959a6e1beecc83/optype-0.19.0-py3-none-any.whl", hash = "sha256:31bff7d2e51e88916a11affed80dbe306ca9e74c76b93b143f1355bb127a7a8c", size = 141516, upload-time = "2026-10-02T23:14:25.686Z" },
 ]
 
 [package.optional-dependencies]
@@ -1811,14 +1811,14 @@ wheels = [
 
 [[package]]
 name = "scipy-stubs"
-version = "1.18.0.1"
+version = "1.18.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "optype", extra = ["numpy"] },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a0/c6/c4c80bd13c0eec99121922c50cd1c72600672307b28e4ba67f636d6b298d/scipy_stubs-1.18.0.1.tar.gz", hash = "sha256:761cb35106200c90a37034d3c8120d3899d673de1e5879d3a2ac1d6816c62327", size = 410862, upload-time = "2026-07-12T21:09:29.993Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/dc/76/13f1b922b32ec866389b6f359cf6c29bdb74726df130f0a23a95c72486c1/scipy_stubs-1.18.1.1.tar.gz", hash = "sha256:87995ba945f04a3c3fb9cdb5c06d093cf3637ca1271ae6799eb8030b63fb2263", size = 460131, upload-time = "2026-09-20T22:37:38.617Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b1/0c/78404528783677077f072288724ff8ef8381bbc219b110e3147e60361b6d/scipy_stubs-1.18.0.1-py3-none-any.whl", hash = "sha256:704408c5f03a33924c9fed6dc9e25926dc331ed508d52f1beece0188525cebad", size = 616217, upload-time = "2026-07-12T21:09:28.45Z" },
+    { url = "https://files.pythonhosted.org/packages/27/53/9b6dff8225ef3dbc203b1c2329d9efb2b66dfd51d5c2bf048c0676f47731/scipy_stubs-1.18.1.1-py3-none-any.whl", hash = "sha256:1a48be1702cad1ae9aa850c62ed157c988d990305880511d0e38994d502664f4", size = 665244, upload-time = "2026-09-20T22:37:37.029Z" },
 ]
 
 [[package]]
