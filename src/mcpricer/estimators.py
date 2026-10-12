@@ -61,8 +61,23 @@ def mc_price_european(payoff_fn, model_fn, N, r, T, rng, **params) -> MCResult:
     return summarize(discounted, n_evals=N, elapsed=elapsed)
 
 
-def mc_antithetic():
-    raise NotImplementedError
+def mc_antithetic(payoff_fn, model_fn, N, r, T, rng, **params) -> MCResult:
+    N = int(N)
+
+    t_start = time.perf_counter()
+
+    Z = rng.normal(size=N // 2)
+    S_T_dir = model_fn(Z, r=r, T=T, **params)
+    S_T_ant = model_fn(-Z, r=r, T=T, **params)
+
+    avg_payoff = 0.5 * (payoff_fn(S_T_dir, **params) + payoff_fn(S_T_ant, **params))
+
+    discounted = np.exp(-r * T) * avg_payoff
+
+    elapsed = time.perf_counter() - t_start
+
+    return summarize(discounted, n_evals=2 * len(Z), elapsed=elapsed)
+
 
 
 def mc_control_variate():
